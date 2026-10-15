@@ -1,0 +1,61 @@
+:root {
+  --bg: #eef2f5; --panel: #fff; --ink: #14212b; --muted: #5d6b77; --line: #dbe2e8;
+  --brand: #0f6b78; --brand-ink: #fff;
+  --ok: #1f7a3d; --ok-bg: #e3f4e8; --warn: #8a5a00; --warn-bg: #fdf0d2; --bad: #a62a1e; --bad-bg: #fbe4e1;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f171d; --panel: #18232b; --ink: #e8eef2; --muted: #94a3ae; --line: #2b3a45;
+    --brand: #3fb2c2; --brand-ink: #06242a; --ok: #6fd18f; --ok-bg: #173a25; --warn: #f0c36a; --warn-bg: #3b2e0e; --bad: #ff9b90; --bad-bg: #44201c; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); line-height: 1.5; }
+h1, h2 { margin: 0 0 .5rem; line-height: 1.2; }
+h2 { font-size: 1.2rem; }
+.muted { color: var(--muted); } .small { font-size: .8rem; }
+
+.bar { display: flex; justify-content: space-between; align-items: center; padding: .75rem 1.25rem; background: var(--panel); border-bottom: 1px solid var(--line); }
+.who { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+.role { background: var(--bg); border: 1px solid var(--line); border-radius: 99px; padding: .1rem .6rem; font-size: .8rem; color: var(--muted); }
+.page { max-width: 1050px; margin: 1.5rem auto; padding: 0 1rem; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; }
+.head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .75rem; }
+
+label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .9rem; }
+input, textarea { display: block; width: 100%; margin-top: .3rem; padding: .6rem .7rem; font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+.btn { font: inherit; font-weight: 600; padding: .5rem .9rem; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.primary { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); width: 100%; padding: .7rem; }
+.btn.ok { color: var(--ok); border-color: var(--ok); } .btn.danger { color: var(--bad); border-color: var(--bad); }
+
+.alert { padding: .6rem .8rem; border-radius: 8px; margin: 0 0 1rem; font-size: .9rem; }
+.alert.error { background: var(--bad-bg); color: var(--bad); } .alert.ok { background: var(--ok-bg); color: var(--ok); }
+
+.login { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.login-card { width: 100%; max-width: 380px; }
+.login-card .muted { margin: 0 0 1.25rem; }
+
+.chip { display: inline-block; padding: .15rem .65rem; border-radius: 99px; font-size: .8rem; font-weight: 600; }
+.chip.PENDING { background: var(--warn-bg); color: var(--warn); }
+.chip.APPROVED { background: var(--ok-bg); color: var(--ok); }
+.chip.REJECTED { background: var(--bad-bg); color: var(--bad); }
+
+.tabs { display: flex; gap: .25rem; background: var(--bg); padding: .25rem; border-radius: 9px; }
+.tabs button { font: inherit; border: 0; background: none; color: var(--muted); padding: .35rem .8rem; border-radius: 7px; cursor: pointer; }
+.tabs button.on { background: var(--panel); color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line); }
+
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .75rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .85rem; color: var(--muted); font-weight: 600; }
+.reason { max-width: 280px; overflow-wrap: anywhere; }
+.actions { white-space: nowrap; display: flex; gap: .4rem; }
+.pager { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem; }
+
+.list { list-style: none; margin: 0 0 1rem; padding: 0; }
+.list li { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
